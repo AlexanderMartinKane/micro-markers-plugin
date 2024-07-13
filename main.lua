@@ -1,3 +1,8 @@
+VERSION = "0.1.0"
+
+local micro = import("micro")
+local config = import("micro/config")
+
 local markSelection = false
 
 function toggleMarkSelection(bp)
@@ -114,4 +119,8 @@ function preCursorEnd(bp)
         return false
     end
     return true
+end
+
+function init()
+	config.MakeCommand("togglemarkselection", toggleMarkSelection, config.NoComplete)
 end

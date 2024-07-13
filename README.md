@@ -4,20 +4,37 @@ Mark selection support for Micro text editor
 
 ## Instalation
 
-Using the package manager:
+Clone the repository to your Micro `plug` directory:
 
 ```bash
-$ micro --plugin install markers
+$ git clone https://github.com/AlexanderMartinKane/micro-markers-plugin.git ~/.config/micro/plug/markers
 ```
 
-Or from within Micro (a restart is needed after the instalation):
+## Configuration
 
-```
-> plugin install markers
-```
-
-Or manually install the plugin by cloning the repository to your Micro `plug` directory:
+1. Run `micro` editor
 
 ```bash
-$ git clone https://github.com/AlexanderMartinKane/micro-markers-plugin.git ~/.config/micro/plug/nelua
+micro
+```
+
+2. Create a key binding. First, press `Ctrl + e`, type the command below, and press `Enter`
+
+```bash
+bind "Alt-m" togglemarkselection
+```
+
+Make sure Alt acts as a meta key. If you're using Warp, go to Warp's settings -> Features -> Keys and make sure "Left Alt key is Meta" toggle is ON.
+
+Alternatively, you can add this line manually to you `~/.config/micro/bindings.json`:
+
+```bash
+micro ~/.config/micro/bindings.json
+```
+
+```json
+{
+	...
+	"Alt-m": "command:togglemarkselection"
+}
 ```
