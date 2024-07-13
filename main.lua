@@ -1,4 +1,4 @@
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 
 local micro = import("micro")
 local config = import("micro/config")
@@ -7,6 +7,13 @@ local markSelection = false
 
 function toggleMarkSelection(bp)
     markSelection = not markSelection
+end
+
+function onKeyPress(bp, key)
+  if key == micro.Key.Escape then
+    markSelection = false
+    bp:Deselect()
+  end
 end
 
 function preCursorUp(bp)
@@ -119,6 +126,10 @@ function preCursorEnd(bp)
         return false
     end
     return true
+end
+
+function preEscape(bp)
+  markSelection = false
 end
 
 function init()
